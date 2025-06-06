@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Code, Coffee, Lightbulb } from 'lucide-react';
 
@@ -49,7 +48,7 @@ const About = () => {
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-cyan-400 p-1">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
                   <img 
-                    src="https://github.com/OppongNicholas303/oppong-animated-canvas/blob/main/WhatsApp%20Image%202025-06-06%20at%2010.05.44%20PM.jpeg" 
+                    src="/src/assets/images/nicholas.jpeg" 
                     alt="Nicholas Oppong" 
                     className="w-72 h-72 rounded-full object-cover"
                   />
