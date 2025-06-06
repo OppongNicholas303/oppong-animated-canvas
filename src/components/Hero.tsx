@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Download, ExternalLink } from 'lucide-react';
+import { ChevronDown, Download, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -13,7 +13,7 @@ const Hero = () => {
       const timeout = setTimeout(() => {
         setDisplayText(prev => prev + fullText[currentIndex]);
         setCurrentIndex(prev => prev + 1);
-      }, 100);
+      }, 80);
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, fullText]);
@@ -25,53 +25,62 @@ const Hero = () => {
     }
   };
 
-  return (
-    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
+  const scrollToContact = () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-      <div className="animate-fade-in space-y-8 max-w-4xl">
-        <div className="space-y-4">
-          <p className="text-lg text-muted-foreground font-medium tracking-wide">
-            Hello, I'm
-          </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent leading-tight">
-            Nicholas Oppong
-          </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground font-light h-16 flex items-center justify-center">
-            <span className="border-r-2 border-primary pr-2 mr-2">
-              {displayText}
-            </span>
-            <span className="animate-pulse text-primary">|</span>
-          </h2>
+  return (
+    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-6 lg:px-8 relative">
+      <div className="animate-fade-in space-y-12 max-w-5xl">
+        <div className="space-y-8">
+          <div className="space-y-2">
+            <p className="text-base text-muted-foreground font-medium tracking-wide uppercase">
+              Software Engineer
+            </p>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground leading-tight tracking-tight">
+              Nicholas Oppong
+            </h1>
+          </div>
+          
+          <div className="h-16 flex items-center justify-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light">
+              <span className="border-r-2 border-primary/60 pr-3 mr-3">
+                {displayText}
+              </span>
+              <span className="animate-pulse text-primary">|</span>
+            </h2>
+          </div>
         </div>
         
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-          Crafting scalable, high-performance applications with modern technologies. 
-          Specialized in <span className="text-primary font-semibold">Java Spring Boot</span>, 
-          <span className="text-primary font-semibold"> React.js</span>, and 
-          <span className="text-primary font-semibold"> AWS cloud solutions</span>.
-        </p>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light">
+            Specializing in enterprise-grade applications with 
+            <span className="text-foreground font-medium"> Java Spring Boot</span>, 
+            <span className="text-foreground font-medium"> React.js</span>, and 
+            <span className="text-foreground font-medium"> AWS cloud infrastructure</span>. 
+            Building scalable solutions that drive business growth.
+          </p>
+        </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
           <Button 
-            onClick={scrollToAbout}
+            onClick={scrollToContact}
             size="lg"
-            className="text-lg px-8 py-6 rounded-full hover:scale-105 transition-all duration-300 shadow-lg"
+            className="text-base px-8 py-3 font-medium"
           >
-            Explore My Work
-            <ExternalLink className="ml-2" size={20} />
+            <Mail className="mr-2" size={18} />
+            Get In Touch
           </Button>
           <Button 
             variant="outline"
             size="lg"
-            className="text-lg px-8 py-6 rounded-full hover:scale-105 transition-all duration-300 border-2"
+            className="text-base px-8 py-3 font-medium"
           >
+            <Download className="mr-2" size={18} />
             Download Resume
-            <Download className="ml-2" size={20} />
           </Button>
         </div>
       </div>
@@ -80,7 +89,7 @@ const Hero = () => {
         onClick={scrollToAbout}
         className="absolute bottom-8 animate-bounce hover:scale-110 transition-transform"
       >
-        <ChevronDown size={40} className="text-muted-foreground hover:text-primary transition-colors" />
+        <ChevronDown size={32} className="text-muted-foreground hover:text-primary transition-colors" />
       </button>
     </section>
   );
