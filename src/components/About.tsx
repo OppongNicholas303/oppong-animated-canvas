@@ -48,7 +48,7 @@ const About = () => {
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-cyan-400 p-1">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
                   <img 
-                    src="/src/assets/images/nicholas.jpeg" 
+                    src="/nicholas.jpeg" 
                     alt="Nicholas Oppong" 
                     className="w-72 h-72 rounded-full object-cover"
                   />
